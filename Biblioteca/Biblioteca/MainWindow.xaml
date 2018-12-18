@@ -1,0 +1,18 @@
+﻿<Window x:Class="Biblioteca.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Button Name="btn_mantLibros" Content="Mantenimiento Libros" HorizontalAlignment="Left" Margin="64,23,0,0" VerticalAlignment="Top" Width="151" Height="65" Background="#FF5FA0EE" FontSize="14" Click="btn_mantLibros_Click" />
+            <Button Name="btn_mantSocios" Content="Mantenimiento Socios" HorizontalAlignment="Left" Margin="64,123,0,0" VerticalAlignment="Top" Width="151" Height="65" Background="#FF4E99F3" FontSize="14" />
+            <Button Name="btn_registrarPrest" Content="Registro Prestamo" HorizontalAlignment="Left" Margin="64,225,0,0" VerticalAlignment="Top" Width="151" Height="65" Background="#FF589BEC" FontSize="14"/>
+            <Button Name="btn_devolbverPrest" Content="Devolucion Prestamo" HorizontalAlignment="Left" Margin="64,324,0,0" VerticalAlignment="Top" Width="151" Height="65" Background="#FF4692EE" FontSize="14"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="384" Margin="309,17,0,0" VerticalAlignment="Top" Width="473" Source="imagenes/imagbiblio.jpg"/>
+        </Grid>
+    </Grid>
+</Window>
