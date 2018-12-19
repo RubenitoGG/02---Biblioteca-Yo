@@ -19,3 +19,5 @@ C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaRegistrar.baml
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaDevolver.g.cs
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaDevolver.baml
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaSocio.g.cs
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaSocio.baml

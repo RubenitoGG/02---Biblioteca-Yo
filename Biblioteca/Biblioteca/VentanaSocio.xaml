@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="VentanaSocio" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Código" HorizontalAlignment="Left" Margin="263,84,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_codigo" HorizontalAlignment="Left" Height="25" Margin="343,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Socios" HorizontalAlignment="Left" Margin="336,22,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label Content="DNI" HorizontalAlignment="Left" Margin="284,114,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_dni" HorizontalAlignment="Left" Height="25" Margin="343,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="257,147,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="25" Margin="343,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="251,176,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="25" Margin="343,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Dirección" HorizontalAlignment="Left" Margin="250,210,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="25" Margin="343,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="266,239,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_correo" HorizontalAlignment="Left" Height="25" Margin="343,243,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="255,271,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="25" Margin="343,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <Button Content="Agregar" HorizontalAlignment="Left" Margin="336,320,0,0" VerticalAlignment="Top" Width="124" Height="49" FontWeight="Bold" FontSize="22" Click="Button_Click"/>
+
     </Grid>
 </Window>

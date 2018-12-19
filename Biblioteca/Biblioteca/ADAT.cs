@@ -24,6 +24,7 @@ namespace Biblioteca
         // Cogemos datos de la base de datos:
         public static bibliotecaDataSet.LibroRow libroRow;
         public static bibliotecaDataSet.ejemplarRow ejemplarRow;
+        public static bibliotecaDataSet.socioRow socioRow;
 
         public void InsertarLibro(string codigo, string isbn, string titulo, string editorial, string descripcion)
         {
@@ -214,7 +215,7 @@ namespace Biblioteca
         {
             try
             {
-                if(libroRow != null)
+                if (libroRow != null)
                 {
                     // Establecemos conexión:
                     SqlConnection connection = new SqlConnection(this.conexion);
@@ -252,7 +253,7 @@ namespace Biblioteca
         public void BuscarEjemplarDisponible(string codigo)
         {
             dataSet.ejemplar.Clear();
-            
+
             try
             {
                 // Establecemos conexión:
@@ -348,6 +349,10 @@ namespace Biblioteca
                     connection.Open();
                     Debug.WriteLine("Conexión abierta.");
 
+                    
+
+
+                    // CAMBIAR EL ESTADO DEL LIBRO A PRESTADO (P)
                     // Creamos constructor:
                     StringBuilder str_insert = new StringBuilder();
                     str_insert.AppendFormat("Update ejemplar set estado ='P' where codigo = " + ejemplarRow.codigo +
@@ -358,7 +363,7 @@ namespace Biblioteca
 
                     // Ejecutamos Query:
                     registrosActualizados = comando.ExecuteNonQuery();
-
+                    
                     //Cerramos conexión.
                     connection.Close();
                     Debug.WriteLine("Conexión cerrada.");
@@ -403,6 +408,94 @@ namespace Biblioteca
                     Debug.WriteLine(er.ToString());
                 }
             }
+        }
+
+        public void AgregarSocio(string codigo, string dni, string nombre, string apellidos, string direccion, string correo, string telefono)
+        {
+            BuscarSocio(codigo);
+
+            if (socioRow == null)
+            {
+                try
+                {
+                    // Establecemos conexión:
+                    SqlConnection connection = new SqlConnection(this.conexion);
+                    connection.Open();
+                    Debug.WriteLine("Conexión abierta");
+
+                    // Creamos el constructor para insertar:
+                    StringBuilder str_insert = new StringBuilder();
+                    str_insert.AppendFormat("Insert Socio values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'" +
+                        ")", codigo, dni, nombre, apellidos, direccion, correo, telefono);
+
+                    // Creamos Query:
+                    SqlCommand comando = new SqlCommand(str_insert.ToString(), connection);
+
+                    // Ejecutar Query:
+                    registrosActualizados = comando.ExecuteNonQuery();
+
+                    // Cerramos la conexión:
+                    connection.Close();
+                    Debug.WriteLine("Conexión cerrada");
+                    MessageBox.Show("Socio añadido", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Debug.WriteLine(er.ToString());
+                }
+            }
+            else
+                MessageBox.Show("Código de socio ya utilizado", "", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void BuscarSocio(string codigo)
+        {
+            // Limpiamos la referencia a socio:
+            dataSet.socio.Clear();
+
+            try
+            {
+                // Establecemos conexión:
+                SqlConnection connection = new SqlConnection(this.conexion);
+                connection.Open();
+                Debug.WriteLine("Conexión abierta");
+
+                // Creamos el constructor para insertar:
+                StringBuilder str_insert = new StringBuilder();
+                str_insert.AppendFormat("Select * from socio Where codigo = " + codigo);
+
+                // Creamos Query:
+                SqlDataAdapter adapter = new SqlDataAdapter(str_insert.ToString(), connection);
+
+                // Ejecutamos Query:
+                adapter.Fill(dataSet.socio);
+
+                // Guardamos 'libroRow' si encontramos el libro:
+                if (dataSet.socio.Count == 1)
+                {
+                    socioRow = dataSet.socio[0];
+                    Debug.WriteLine("Socio guardado");
+                }
+                else
+                {
+                    if (dataSet.socio.Count == 0)
+                        socioRow = null;
+                }
+
+                // Cerramos la conexión:
+                connection.Close();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                Debug.WriteLine(er.ToString());
+            }
+        }
+
+        public void BuscarPrestamo()
+        {
+
         }
     }
 }

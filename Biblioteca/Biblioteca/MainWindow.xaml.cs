@@ -42,5 +42,11 @@ namespace Biblioteca
             VentanaDevolver newVentana = new VentanaDevolver();
             newVentana.Show();
         }
+
+        private void btn_mantSocios_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaSocio newVentana = new VentanaSocio();
+            newVentana.Show();
+        }
     }
 }
