@@ -15,3 +15,7 @@ C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaLibro.g.cs
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaLibro.baml
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaRegistrar.g.cs
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaRegistrar.baml
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaDevolver.g.cs
+C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\obj\Debug\VentanaDevolver.baml

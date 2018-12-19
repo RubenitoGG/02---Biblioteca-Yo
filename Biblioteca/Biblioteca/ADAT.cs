@@ -11,6 +11,9 @@ namespace Biblioteca
 {
     public class ADAT
     {
+        // Variable para guardar el numero de ejemplar a prestar:
+        public int numEjemplar;
+
         // Invocamos la base de datos:
         public static bibliotecaDataSet dataSet = new bibliotecaDataSet();
         public static int registrosActualizados;
@@ -112,7 +115,6 @@ namespace Biblioteca
 
                 // Ejecutamos Query:
                 adapter.Fill(dataSet.ejemplar);
-                Debug.WriteLine(dataSet.ejemplar);
 
                 // Cerramos conexión:
                 connection.Close();
@@ -179,8 +181,6 @@ namespace Biblioteca
             {
                 if (libroRow != null)
                 {
-
-
                     // Establecemos conexión:
                     SqlConnection connection = new SqlConnection(this.conexion);
                     connection.Open();
@@ -246,6 +246,162 @@ namespace Biblioteca
             {
                 MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 Debug.WriteLine(er.ToString());
+            }
+        }
+
+        public void BuscarEjemplarDisponible(string codigo)
+        {
+            dataSet.ejemplar.Clear();
+            
+            try
+            {
+                // Establecemos conexión:
+                SqlConnection connection = new SqlConnection(this.conexion);
+                connection.Open();
+                Debug.WriteLine("Conexión abierta.");
+
+                // Creamos el constructor para insertar:
+                StringBuilder str_insert = new StringBuilder();
+                str_insert.AppendFormat("Select top 1 * from Ejemplar Where codigo = " + codigo + " and estado = 'D'");
+
+                // Creamos Query:
+                SqlDataAdapter adapter = new SqlDataAdapter(str_insert.ToString(), connection);
+
+                // Ejecutamos Query:
+                adapter.Fill(dataSet.ejemplar);
+
+                // Guardamos 'ejemplarRow' si encontramos el libro:
+                if (dataSet.ejemplar.Count == 1)
+                {
+                    ejemplarRow = dataSet.ejemplar[0];
+                    Debug.WriteLine("Ejemplar guardado");
+                }
+                else
+                {
+                    if (dataSet.ejemplar.Count == 0)
+                        ejemplarRow = null;
+                }
+
+                // Cerramos conexión:
+                connection.Close();
+                Debug.WriteLine("Conexión cerrada.");
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                Debug.WriteLine(er.ToString());
+            }
+        }
+
+        public void BuscarEjemplarPrestado(string codigo)
+        {
+            dataSet.ejemplar.Clear();
+
+            try
+            {
+                // Establecemos conexión:
+                SqlConnection connection = new SqlConnection(this.conexion);
+                connection.Open();
+                Debug.WriteLine("Conexión abierta.");
+
+                // Creamos el constructor para insertar:
+                StringBuilder str_insert = new StringBuilder();
+                str_insert.AppendFormat("Select top 1 * from Ejemplar Where codigo = " + codigo + " and estado = 'P'");
+
+                // Creamos Query:
+                SqlDataAdapter adapter = new SqlDataAdapter(str_insert.ToString(), connection);
+
+                // Ejecutamos Query:
+                adapter.Fill(dataSet.ejemplar);
+
+                // Guardamos 'ejemplarRow' si encontramos el libro:
+                if (dataSet.ejemplar.Count == 1)
+                {
+                    ejemplarRow = dataSet.ejemplar[0];
+                    Debug.WriteLine("Ejemplar guardado");
+                }
+                else
+                {
+                    if (dataSet.ejemplar.Count == 0)
+                        ejemplarRow = null;
+                }
+
+                // Cerramos conexión:
+                connection.Close();
+                Debug.WriteLine("Conexión cerrada.");
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                Debug.WriteLine(er.ToString());
+            }
+        }
+
+        public void PrestarLibro()
+        {
+            if (ejemplarRow != null)
+            {
+                try
+                {
+                    // Establecemos conexión:
+                    SqlConnection connection = new SqlConnection(this.conexion);
+                    connection.Open();
+                    Debug.WriteLine("Conexión abierta.");
+
+                    // Creamos constructor:
+                    StringBuilder str_insert = new StringBuilder();
+                    str_insert.AppendFormat("Update ejemplar set estado ='P' where codigo = " + ejemplarRow.codigo +
+                        " and numeroEjemp =" + ejemplarRow.numeroEjemp);
+
+                    // Creamos Query:
+                    SqlCommand comando = new SqlCommand(str_insert.ToString(), connection);
+
+                    // Ejecutamos Query:
+                    registrosActualizados = comando.ExecuteNonQuery();
+
+                    //Cerramos conexión.
+                    connection.Close();
+                    Debug.WriteLine("Conexión cerrada.");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Debug.WriteLine(er.ToString());
+                }
+            }
+        }
+
+        public void DevolverLibro()
+        {
+            if (ejemplarRow != null)
+            {
+                try
+                {
+                    // Establecemos conexión:
+                    SqlConnection connection = new SqlConnection(this.conexion);
+                    connection.Open();
+                    Debug.WriteLine("Conexión abierta.");
+
+                    // Creamos constructor:
+                    StringBuilder str_insert = new StringBuilder();
+                    str_insert.AppendFormat("Update ejemplar set estado ='D' where codigo = " + ejemplarRow.codigo +
+                        " and numeroEjemp =" + ejemplarRow.numeroEjemp);
+
+                    // Creamos Query:
+                    SqlCommand comando = new SqlCommand(str_insert.ToString(), connection);
+
+                    // Ejecutamos Query:
+                    registrosActualizados = comando.ExecuteNonQuery();
+
+                    //Cerramos conexión.
+                    connection.Close();
+                    Debug.WriteLine("Conexión cerrada.");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Debug.WriteLine(er.ToString());
+                }
             }
         }
     }

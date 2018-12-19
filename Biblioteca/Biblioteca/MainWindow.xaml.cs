@@ -30,5 +30,17 @@ namespace Biblioteca
             VentanaLibro newVentana = new VentanaLibro();
             newVentana.Show();
         }
+
+        private void btn_registrarPrest_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaRegistrar newVentana = new VentanaRegistrar();
+            newVentana.Show();
+        }
+
+        private void btn_devolbverPrest_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaDevolver newVentana = new VentanaDevolver();
+            newVentana.Show();
+        }
     }
 }

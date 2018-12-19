@@ -61,8 +61,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bibliotecaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VentanaDevolver.xaml.cs">
+      <DependentUpon>VentanaDevolver.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaLibro.xaml.cs">
       <DependentUpon>VentanaLibro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaRegistrar.xaml.cs">
+      <DependentUpon>VentanaRegistrar.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,7 +82,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanaDevolver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaLibro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaRegistrar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

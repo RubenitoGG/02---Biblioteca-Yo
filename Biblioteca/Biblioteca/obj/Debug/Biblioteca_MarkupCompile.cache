@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dam209\Desktop\ACDA\Tema 4 - Conexion SQL\02 - Biblioteca Yo\Biblioteca\Biblioteca\App.xaml
-2-2089211356
+4-2144302634
 
-8947937076
+101831234639
 131569487696
-MainWindow.xaml;VentanaLibro.xaml;
+MainWindow.xaml;VentanaDevolver.xaml;VentanaLibro.xaml;VentanaRegistrar.xaml;
 
 False
 
